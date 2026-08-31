@@ -1,0 +1,208 @@
+@import url("./colors.css");
+* {
+    border: none;
+    border-radius: 1px;
+    font-family: JetBrainsMono Nerd Font, Font Awesome;
+    font-size: 13px;
+    min-height: 0;
+}
+window#waybar {
+    background-color: rgba(16, 16, 18, 0.3);
+    color: @text;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+tooltip {
+    background-color: @base;
+    border: 1px solid @surface1;
+}
+tooltip label {
+    color: @text;
+}
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 1px;
+}
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @text;
+}
+#workspaces button {
+    padding: 0 0px;
+    margin: 5px 1px;
+    border-radius: 1px;
+    color: @subtext0;
+    background-color: @surface1;
+    box-shadow: none;
+    transition: all 0.15s ease-in-out;
+}
+#workspaces button:hover {
+    box-shadow: none;
+}
+#workspaces button.urgent {
+    background-color: @red;
+    color: @mantle;
+}
+
+/* Idle state: muted solid tint, high-contrast 3-color rotation */
+#workspaces button:nth-child(3n+1) { background-color: mix(@peach, @mantle, 0.85); }
+#workspaces button:nth-child(3n+2) { background-color: mix(@sky, @mantle, 0.85); }
+#workspaces button:nth-child(3n)   { background-color: mix(@mauve, @mantle, 0.85); }
+
+/* Hover: slightly stronger tint, still muted */
+#workspaces button:nth-child(3n+1):hover { background-color: mix(@peach, @mantle, 0.65); color: @text; }
+#workspaces button:nth-child(3n+2):hover { background-color: mix(@sky, @mantle, 0.65);   color: @text; }
+#workspaces button:nth-child(3n):hover   { background-color: mix(@mauve, @mantle, 0.65); color: @text; }
+
+/* Focused: solid but toned down, not full saturation */
+#workspaces button:nth-child(3n+1).focused { background-color: mix(@peach, @surface2, 0.25); color: @mantle; }
+#workspaces button:nth-child(3n+2).focused { background-color: mix(@sky, @surface2, 0.25);   color: @mantle; }
+#workspaces button:nth-child(3n).focused   { background-color: mix(@mauve, @surface2, 0.25); color: @mantle; }
+#taskbar button.active {
+    background-image: linear-gradient(0deg, @surface1, @mantle);
+}
+#mode {
+    background-color: @base;
+    box-shadow: inset 0 -2px @text;
+}
+#custom-weather,
+#clock,
+#network,
+#memory,
+#cpu,
+#temperature,
+#wireplumber,
+#battery,
+#scratchpad,
+#mode,
+#tray,
+#custom-notification {
+    padding: 0 10px;
+    margin: 5px 1px;
+    color: @text;
+}
+#language {
+    padding: 0 10px;
+    margin: 5px 1px;
+    background-color: @rosewater;
+    color: @mantle;
+}
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+#custom-weather {
+    background-color: @teal;
+    color: @mantle;
+    margin-right: 5px;
+}
+#clock {
+    background-color: @green;
+    color: @mantle;
+}
+@keyframes blink {
+    to {
+        background-color: @mantle;
+        color: @text;
+    }
+}
+label:focus {
+    background-color: @mantle;
+}
+#cpu {
+    background-color: @mauve;
+    color: @mantle;
+    min-width: 45px;
+}
+#memory {
+    background-color: @sapphire;
+    color: @mantle;
+}
+#memory.critical {
+    background-color: @red;
+    color: @mantle;
+}
+#network {
+    background-color: @peach;
+    color: @mantle;
+}
+#network.disconnected {
+    background-color: @red;
+    color: @mantle;
+}
+#wireplumber {
+    background-color: @yellow;
+    color: @mantle;
+}
+#wireplumber.muted {
+    background-color: @red;
+    color: @mantle;
+}
+#temperature {
+    background-color: @pink;
+    color: @mantle;
+    min-width: 37px;
+}
+#temperature.critical {
+    background-color: @red;
+    color: @mantle;
+    min-width: 37px;
+}
+#battery {
+    background-color: @lavender;
+    color: @mantle;
+}
+#battery.warning {
+    background-color: @yellow;
+    color: @mantle;
+}
+#battery.critical {
+    background-color: @red;
+    color: @mantle;
+}
+#tray {
+    background-color: @overlay0;
+    color: @text;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @mantle;
+}
+#scratchpad {
+    background-color: @base;
+    color: @text;
+}
+#scratchpad.empty {
+    background-color: transparent;
+}
+#custom-notification {
+    background-color: @flamingo;
+    color: @mantle;
+}
+#custom-notification.notification,
+#custom-notification.dnd-notification,
+#custom-notification.inhibited-notification,
+#custom-notification.dnd-inhibited-notification {
+    background-color: @red;
+    color: @mantle;
+}
+#custom-notification.dnd-none,
+#custom-notification.dnd-inhibited-none {
+    background-color: @overlay1;
+    color: @text;
+}
+#custom-notification.inhibited-none {
+    background-color: @overlay0;
+    color: @text;
+}

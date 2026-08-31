@@ -1,0 +1,95 @@
+colors:
+  # vague.nvim palette
+  # https://github.com/vague2k/vague.nvim
+  black: "141415"
+  shadow: "1c1c24"
+  graphite: "252530"
+  onyx: "333738"
+  muted: "606079"
+  gray: "878787"
+  white: "cdcdcd"
+  yellow: "f3be7c"
+  amber: "e8b589"
+  gold: "e0a363"
+  peach: "c48282"
+  red: "d8647e"
+  storm: "405065"
+  lilac: "c3c3d5"
+  cyan: "aeaed1"
+  magenta: "bb9dbd"
+  aqua: "b4d4cf"
+  lavender: "90a0b5"
+  teal: "9bb4bc"
+  blue: "6e94b2"
+  iris: "7e98e8"
+  green: "7fa563"
+core:
+  normal_text: {}
+  regular_file: {}
+  reset_to_normal: {}
+  directory:
+    foreground: blue
+  symlink:
+    foreground: cyan
+  multi_hard_link: {}
+  fifo:
+    foreground: white
+    background: storm
+  socket:
+    foreground: white
+    background: magenta
+  door:
+    foreground: white
+    background: magenta
+  block_device:
+    foreground: iris
+    background: graphite
+  character_device:
+    foreground: peach
+    background: graphite
+  broken_symlink:
+    foreground: white
+    background: red
+  missing_symlink_target:
+    foreground: white
+    background: red
+  setuid: {}
+  setgid: {}
+  file_with_capability: {}
+  sticky_other_writable: {}
+  other_writable: {}
+  sticky: {}
+  executable_file:
+    foreground: green
+    font-style: bold
+text:
+  special:
+    foreground: black
+    background: yellow
+  todo:
+    font-style: bold
+  licenses:
+    foreground: muted
+  configuration:
+    foreground: gold
+  other:
+    foreground: white
+markup:
+  foreground: amber
+programming:
+  source:
+    foreground: blue
+  tooling:
+    foreground: teal
+media:
+  foreground: peach
+office:
+  foreground: iris
+archives:
+  foreground: aqua
+  font-style: underline
+executable:
+  foreground: green
+  font-style: bold
+unimportant:
+  foreground: muted

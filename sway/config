@@ -1,0 +1,223 @@
+
+# /home/$USER/.config/sway/config
+#
+
+exec swaync
+exec vicinae server
+
+set $MOD Mod4
+set $UP k
+set $DOWN j
+set $LEFT h
+set $RIGHT l
+set $TERMINAL kitty
+set $BROWSER helium-browser
+set $TELEGRAM AyuGram
+set $LAUNCHER vicinae toggle
+set $CLIPBOARD vicinae vicinae://launch/clipboard/history
+set $CONTROLCENTER swaync-client -t -sw
+
+output "eDP-1" {
+    mode 1920x1080@60.164Hz
+    position 0,0
+    scale 1
+    subpixel rgb
+    transform normal
+    background /home/okura/.pictures/schoolgirl.png fill
+}
+
+input type:keyboard {
+    repeat_rate     50
+    repeat_delay    300
+    xkb_layout      "us,ru"
+    xkb_options     "grp:ctrl_space_toggle,caps:ctrl_modifier"
+    xkb_numlock     enabled
+}
+
+input type:touchpad {
+    click_method    clickfinger
+    events          disabled_on_external_mouse
+    natural_scroll  enabled
+    tap             enabled
+}
+
+seat seat0 {
+    xcursor_theme "macos-tahoe-cursor" 24
+    hide_cursor 10000
+    hide_cursor when-typing enable
+}
+
+bindsym {
+    $MOD+Return exec $TERMINAL
+    $MOD+space exec $LAUNCHER
+    $MOD+o exec $CONTROLCENTER
+    $MOD+c exec $CLIPBOARD
+    $MOD+t exec $TELEGRAM
+    $MOD+b exec $BROWSER
+}
+
+bindsym {
+    $MOD+q kill
+    $MOD+Shift+r reload
+    $MOD+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+}
+
+floating_modifier $MOD normal
+
+# Move focus around
+bindsym {
+    $MOD+Left focus left
+    $MOD+Down focus down
+    $MOD+Up focus up
+    $MOD+Right focus right
+
+    $MOD+$LEFT focus left
+    $MOD+$DOWN focus down
+    $MOD+$UP focus up
+    $MOD+$RIGHT focus right
+}
+
+# Move the focused window
+bindsym {
+    $MOD+Shift+Left move left
+    $MOD+Shift+Down move down
+    $MOD+Shift+Up move up
+    $MOD+Shift+Right move right
+
+    $MOD+Shift+$LEFT move left
+    $MOD+Shift+$DOWN move down
+    $MOD+Shift+$UP move up
+    $MOD+Shift+$RIGHT move right
+}
+
+# Switch to workspace
+bindsym {
+    $MOD+1 workspace number 1
+    $MOD+2 workspace number 2
+    $MOD+3 workspace number 3
+    $MOD+4 workspace number 4
+    $MOD+5 workspace number 5
+    $MOD+6 workspace number 6
+    $MOD+7 workspace number 7
+    $MOD+8 workspace number 8
+    $MOD+9 workspace number 9
+    $MOD+0 workspace number 10
+}
+
+# Move focused container to workspace
+bindsym {
+    $MOD+Shift+1 move container to workspace number 1
+    $MOD+Shift+2 move container to workspace number 2
+    $MOD+Shift+3 move container to workspace number 3
+    $MOD+Shift+4 move container to workspace number 4
+    $MOD+Shift+5 move container to workspace number 5
+    $MOD+Shift+6 move container to workspace number 6
+    $MOD+Shift+7 move container to workspace number 7
+    $MOD+Shift+8 move container to workspace number 8
+    $MOD+Shift+9 move container to workspace number 9
+    $MOD+Shift+0 move container to workspace number 10
+}
+
+bindsym {
+    # Switch the current container between different layout styles
+    $MOD+w layout tabbed
+    $MOD+s layout stacking
+    $MOD+e layout toggle split
+
+    # Make the current focus fullscreen
+    $MOD+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    $MOD+Shift+backslash floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    $MOD+backslash focus mode_toggle
+
+    # Move focus to the parent container
+    $MOD+a focus parent
+}
+
+bindsym {
+    # Move the currently focused window to the scratchpad
+    $MOD+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window
+    $MOD+minus scratchpad show
+}
+
+bindsym $MOD+r mode "resize"
+
+mode "resize" {
+    bindsym Left resize grow width 10px
+    bindsym Down resize shrink height 10px
+    bindsym Up resize grow height 10px
+    bindsym Right resize shrink width 10px
+
+    bindsym $LEFT resize grow width 10px
+    bindsym $DOWN resize shrink height 10px
+    bindsym $UP resize grow height 10px
+    bindsym $RIGHT resize shrink width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym --locked {
+    XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
+    XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
+    XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+    XF86MonBrightnessUp   exec brightnessctl --class=backlight set +5%
+    XF86MonBrightnessDown exec brightnessctl --class=backlight set 5%-
+}
+
+bindsym Print exec sway-screenshot -m region
+
+# Rules
+for_window [title="All Files"] floating enable
+for_window [title="Open File"] floating enable
+for_window [title="Open Folder"] floating enable
+for_window [title="(?i)references"] floating enable
+for_window [title="(?i)wants to open"] floating enable
+for_window [title="(?i)wants to save"] floating enable
+
+for_window [app_id="qView"] floating enable
+for_window [app_id="com.interversehq.qView"] floating enable
+
+for_window [app_id="neomod"] fullscreen enable
+
+# Appearance
+bar {
+    swaybar_command waybar
+}
+
+# class                 border    background text      indicator child_border
+client.focused          #8caaee   #141415    #cdcdcd   #ef9f76   #8caaee
+client.focused_inactive #30303a   #141415    #7f8490   #30303a   #30303a
+client.unfocused        #1c1c1f   #141415    #5c6370   #1c1c1f   #1c1c1f
+client.urgent           #e78284   #141415    #cdcdcd   #e78284   #e78284
+client.placeholder      #313244   #141415    #cdcdcd   #313244   #313244
+client.background       #141415
+
+default_border pixel 1
+default_floating_border pixel 2
+focus_follows_mouse yes
+focus_on_window_activation smart
+smart_borders off
+mouse_warping container
+workspace_layout default
+xwayland enable
+
+# Blur
+blur enable
+blur_xray enable
+blur_passes 1
+blur_radius 4
+blur_noise 0.01
+blur_brightness 1.0
+blur_contrast 1.0
+blur_saturation 1.0
+
+layer_effects "waybar" 'blur enable; shadows disable'
+
+include /etc/sway/config.d/*

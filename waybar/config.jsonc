@@ -1,0 +1,193 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-left": 2,
+    "margin-right": 2,
+    "height": 0,
+    "spacing": 1,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/scratchpad"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/notification"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/weather",
+        "temperature",
+        "memory",
+        "cpu",
+        "network",
+        "wireplumber",
+        "sway/language",
+        "battery"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}"
+    },
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+    "sway/language": {
+        "format": "lang: {}",
+        "tooltip": false,
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+
+    "clock": {
+        "interval": 60,
+        "timezone": "Europe/Moscow",
+        "locale": "ru_RU.UTF-8",
+        "format": "{:%R}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#c6a0f6'><b>{}</b></span>",
+                "days":       "<span color='#cdcdcd'><b>{}</b></span>",
+                "weeks":      "<span color='#8ecab5'>W{}</span>",
+                "weekdays":   "<span color='#e5c890'><b>{}</b></span>",
+                "today":      "<span background='#8caaee' color='#141415'><b>{}</b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "cpu::{usage}%",
+        // "format": "{usage}% 󰍛",
+        "tooltip": false,
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "interval": 3,
+        "format": "mem::{}%",
+        // "format": "{}% ",
+        "on-click": "kitty -e btop",
+        "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "states": {
+            "critical": 80
+        }
+    },
+
+    "temperature": {
+        "format": "temp::{temperatureC}°C",
+        // "format": "{temperatureC}°C {icon}",
+        "format-critical": "temp::{temperatureC}°C",
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "interval": 3,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 90
+    },
+
+    "network": {
+        "format-wifi": "net::{signalStrength}%",
+        // "format-wifi": "{signalStrength}% {icon}",
+        // "format-ethernet": "󰀂 {ifname}",
+        "format-ethernet": "net::{ifname}",
+        "format-disconnected": "net::󰤭",
+        // "format-disconnected": "󰤭",
+        "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 3
+    },
+
+    "custom/weather": {
+        "interval": 600,
+        "exec": "~/.config/waybar/Scripts/wittr.sh Kazan",
+        "return-type": "json",
+        "format": "Voronezh::{}",
+        "tooltip": true
+    },
+
+    "wireplumber": {
+        "format": "vol::{volume}%",
+        // "format": "{icon} {volume}%",
+        "tooltip": false,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 2,
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+
+    "battery": {
+        // "format": "{capacity}% {icon}",
+        "format": "bat::{capacity}%",
+        "format-discharging": "bat::{capacity}%",
+        "format-charging": "bat::{capacity}%",
+        "format-plugged": " ",
+        "format-icons": {
+            "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" ],
+            "default": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
+        },
+        "format-full": "󰂅",
+        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        }
+    },
+
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='13pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

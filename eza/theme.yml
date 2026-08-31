@@ -1,0 +1,110 @@
+# vague.nvim theme for eza
+# https://github.com/vague2k/vague.nvim
+
+colourful: true
+
+filekinds:
+  normal: { foreground: "#cdcdcd" }
+  directory: { foreground: "#6e94b2", is_bold: true }
+  symlink: { foreground: "#aeaed1" }
+  pipe: { foreground: "#606079" }
+  block_device: { foreground: "#e8b589", is_bold: true }
+  char_device: { foreground: "#e8b589", is_bold: true }
+  socket: { foreground: "#d8647e", is_bold: true }
+  special: { foreground: "#bb9dbd" }
+  executable: { foreground: "#7fa563", is_bold: true }
+  mount_point: { foreground: "#7e98e8", is_bold: true, is_underline: true }
+
+perms:
+  user_read: { foreground: "#f3be7c", is_bold: true }
+  user_write: { foreground: "#d8647e", is_bold: true }
+  user_execute_file: { foreground: "#7fa563", is_bold: true, is_underline: true }
+  user_execute_other: { foreground: "#7fa563", is_bold: true }
+  group_read: { foreground: "#f3be7c" }
+  group_write: { foreground: "#d8647e" }
+  group_execute: { foreground: "#7fa563" }
+  other_read: { foreground: "#f3be7c" }
+  other_write: { foreground: "#d8647e" }
+  other_execute: { foreground: "#7fa563" }
+  special_user_file: { foreground: "#bb9dbd" }
+  special_other: { foreground: "#bb9dbd" }
+  attribute: { foreground: "#606079" }
+
+size:
+  major: { foreground: "#405065" }
+  minor: { foreground: "#9bb4bc" }
+  number_byte: { foreground: "#cdcdcd" }
+  number_kilo: { foreground: "#c3c3d5" }
+  number_mega: { foreground: "#6e94b2" }
+  number_giga: { foreground: "#7e98e8" }
+  number_huge: { foreground: "#bb9dbd" }
+  unit_byte: { foreground: "#878787" }
+  unit_kilo: { foreground: "#9bb4bc" }
+  unit_mega: { foreground: "#6e94b2" }
+  unit_giga: { foreground: "#7e98e8" }
+  unit_huge: { foreground: "#bb9dbd" }
+
+users:
+  user_you: { foreground: "#cdcdcd", is_bold: true }
+  user_root: { foreground: "#d8647e", is_bold: true }
+  user_other: { foreground: "#aeaed1" }
+  group_yours: { foreground: "#c3c3d5" }
+  group_other: { foreground: "#878787" }
+  group_root: { foreground: "#d8647e" }
+
+links:
+  normal: { foreground: "#b4d4cf" }
+  multi_link_file: { foreground: "#7e98e8" }
+
+git:
+  new: { foreground: "#7fa563" }
+  modified: { foreground: "#e0a363" }
+  deleted: { foreground: "#d8647e" }
+  renamed: { foreground: "#9bb4bc" }
+  typechange: { foreground: "#bb9dbd" }
+  ignored: { foreground: "#606079" }
+  conflicted: { foreground: "#c48282" }
+
+git_repo:
+  branch_main: { foreground: "#cdcdcd" }
+  branch_other: { foreground: "#aeaed1" }
+  git_clean: { foreground: "#7fa563" }
+  git_dirty: { foreground: "#e0a363" }
+
+security_context:
+  colon: { foreground: "#606079" }
+  user: { foreground: "#c3c3d5" }
+  role: { foreground: "#bb9dbd" }
+  typ: { foreground: "#878787" }
+  range: { foreground: "#7e98e8" }
+
+file_type:
+  image: { foreground: "#c48282" }
+  video: { foreground: "#d8647e" }
+  music: { foreground: "#7fa563" }
+  lossless: { foreground: "#b4d4cf" }
+  crypto: { foreground: "#405065" }
+  document: { foreground: "#90a0b5" }
+  compressed: { foreground: "#e0a363" }
+  temp: { foreground: "#606079" }
+  compiled: { foreground: "#6e94b2" }
+  build: { foreground: "#333738" }
+  source: { foreground: "#7e98e8" }
+
+punctuation: { foreground: "#606079" }
+date: { foreground: "#e8b589" }
+inode: { foreground: "#878787" }
+blocks: { foreground: "#405065" }
+header: { foreground: "#cdcdcd", is_bold: true }
+octal: { foreground: "#9bb4bc" }
+flags: { foreground: "#bb9dbd" }
+symlink_path: { foreground: "#aeaed1" }
+control_char: { foreground: "#f3be7c" }
+broken_symlink: { foreground: "#d8647e", is_bold: true }
+broken_path_overlay: { foreground: "#333738" }
+
+# Optional per-file/extension overrides
+# filenames:
+#   "Cargo.toml": { icon: { glyph: "" } }
+# extensions:
+#   rs: { filename: { foreground: "#e0a363" } }

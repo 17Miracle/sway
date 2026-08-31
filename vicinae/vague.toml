@@ -1,0 +1,90 @@
+[meta]
+version = 1
+name = "Vague"
+description = "Vague.nvim inspired low-contrast dark theme"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "#8caaee"
+accent_foreground = "#141415"
+background = "#141415"
+foreground = "#cdcdcd"
+secondary_background = "#1c1c1f"
+border = "#313244"
+
+[colors.main_window]
+border = "colors.core.border"
+footer = { background = "colors.core.secondary_background" }
+
+[colors.settings_window]
+border = "colors.core.border"
+
+[colors.shortcut]
+border = "colors.core.border"
+
+[colors.accents]
+blue = "#8caaee"
+cyan = "#89dceb"
+green = "#a6d189"
+yellow = "#e5c890"
+orange = "#ef9f76"
+red = "#e78284"
+magenta = "#c6a0f6"
+purple = "#babbf1"
+
+[colors.text]
+default = "colors.core.foreground"
+muted = "#7f8490"
+danger = "#e78284"
+success = "#a6d189"
+placeholder = "#5c6370"
+
+[colors.text.links]
+default = "#89dceb"
+visited = "#c6a0f6"
+
+[colors.text.selection]
+background = "#2f334d"
+foreground = "#ffffff"
+
+[colors.input]
+background = "#1c1c1f"
+border = "#313244"
+border_focus = "#8caaee"
+border_error = "#e78284"
+
+[colors.button.primary]
+background = "#252529"
+foreground = "#cdcdcd"
+hover = { background = "#30303a" }
+focus = { outline = "colors.core.accent" }
+
+[colors.list.item.hover]
+background = "#1c1c1f"
+foreground = "#cdcdcd"
+secondary_foreground = "#a8a8a8"
+
+[colors.list.item.selection]
+background = "#252529"
+foreground = "#cdcdcd"
+secondary_background = "#2f334d"
+secondary_foreground = "#a8a8a8"
+
+[colors.grid.item]
+background = "#1c1c1f"
+hover = { outline = "#cdcdcd" }
+selection = { outline = "#8caaee" }
+
+[colors.scrollbars]
+background = "#313244"
+secondary_background = "#3c3c47"
+
+[colors.tooltip]
+background = "#252529"
+foreground = "#cdcdcd"
+border = "#313244"
+
+[colors.loading]
+bar = "#ef9f76"
+spinner = "#cdcdcd"
