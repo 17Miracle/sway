@@ -35,7 +35,7 @@ export BAT_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/bat"
 export ECLIPSE_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/eclipse"
 export SWT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/swt"
 export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=${XDG_DATA_HOME:-$HOME/.local/share}/java"
-export LS_COLORS="$(vivid generate vague)"
+# export LS_COLORS="$(vivid generate vague)"
 export MANPAGER="nvim +Man!"
 export FZF_DEFAULT_OPTS="
                 --style=full
